@@ -1,0 +1,70 @@
+{% load static %}
+{% load i18n %}
+
+<html lang="en">
+<head>
+    {% include '_links.html' %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '_form.css' %}" rel="stylesheet">
+    <link href="{% static '_nav.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static '_message.css' %}" rel="stylesheet">
+
+    <title>{% trans "Profil" %}</title>
+</head>
+
+<body>
+    <div class="glowing-text" style="text-align: center; display: flex; justify-content: center; align-items: center; background-color: #FFAE09;">
+        <h1>{% trans "Profil" %}</h1>
+    </div>
+
+    {% include '_navbar.html' %}
+
+    <div class="mainProfile">
+        <div class="col-sm-8 col-lg-12">
+
+            <form method="post" class="profile-form" style="padding: 30px; border-radius: 5px; width:100%;">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <input type="text" id="username" name="username" value="{{ user.username }}" placeholder="{% trans 'Korisničko ime' %}" class="form-control profileInput">
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="name" name="name" value="{{ user.name }}" placeholder="{% trans 'Ime' %}" class="form-control profileInput">
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="surname" name="surname" value="{{ user.surname }}" placeholder="{% trans 'Prezime' %}" class="form-control profileInput">
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="email" name="email" value="{{ user.email }}" placeholder="{% trans 'Email' %}" class="form-control profileInput">
+            </div>
+
+            <div class="form-group">
+                <h2 style="color: #373737; font-weight: bolder; font-size: 35px; background-color: #FFAE09; border-radius: 5px;">
+                {% trans "Nova lozinka" %}</h2>
+                <input type="password" id="password" name="password" placeholder="{% trans 'Lozinka' %}" class="form-control profileInput">
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password1" name="password1" placeholder="{% trans 'Ponovite lozinku' %}" class="form-control profileInput">
+            </div>
+
+            <div style="width: 100%; text-align: center;">
+                <button type="submit" class="glow-on-hover mainbttn" style="margin-left: 20px; margin-top: 20px;" value="profile">{% trans "Uredi profil" %}</button>
+            </div>
+
+            {% include '_message.html' %}
+
+        </form>
+        </div>
+    </div>
+
+    {% include '_footer.html' %}
+
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+
+</html>

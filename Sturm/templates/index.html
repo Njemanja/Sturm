@@ -1,0 +1,121 @@
+{% load static %}
+{% load i18n %}
+
+<html lang="en">
+<head>
+    {% include '_links.html' %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '_form.css' %}" rel="stylesheet">
+    <link href="{% static '_nav.css' %}" rel="stylesheet">
+    <link href="{% static '_message.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <title>{% trans "Kalkulator" %}</title>
+</head>
+<body>
+    <div style="text-align: center; display: flex; justify-content: center; align-items: center;background-color: #FFAE09;" class="glowing-text">
+        <h1>{% trans "Kalkulator nula polinoma pomoću Šturmove teoreme" %}</h1>
+    </div>
+
+    {% include '_navbar.html' %}
+
+    <div class="main" style="width:100%;">
+        <div class="col-lg-12 text-center" style="display: flex; flex-direction: column; align-items: center;">
+            <input type="text" id="polinomInput" name="polinom" class="form-control mb-3" placeholder="{% trans 'Polinom' %}" style="text-align: center; font-size: 1.2rem; margin-top:10px;">
+            <div class="row justify-content-center">
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('pi')">&#960;</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('e')">e</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('x')">x</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('**')">^</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('+')">+</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('-')">-</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('*')">*</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('/')">/</button>
+                </div>
+                <br>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('0')">0</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('1')">1</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('2')">2</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('3')">3</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('4')">4</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('5')">5</button>
+                </div><div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('6')">6</button>
+                </div><div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('7')">7</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('8')">8</button>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2 my-2">
+                    <button class="glow-on-hover btn-block" onclick="insertValue('9')">9</button>
+                </div>
+            </div>
+
+            <form action="{% url 'Index' %}" method="post" class="mt-4" onsubmit="savePolinom()">
+                {% csrf_token %}
+                <input type="hidden" id="hiddenPolinom" name="hiddenPolinom">
+                <div class="form-row justify-content-center">
+                    <div class="col-12 col-sm-6 col-md-2 mb-2">
+                        <input id="lower" class="form-control" placeholder="{% trans 'Donja granica' %}" name="donjaGranica">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-2 mb-2">
+                        <input id="upper" class="form-control" placeholder="{% trans 'Gornja granica' %}" name="gornjaGranica">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-2 mb-2">
+                        <input id="decimals" class="form-control" placeholder="{% trans 'Broj decimala' %}" name="decimal">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-2 mb-2">
+                        <button type="submit" class="glow-on-hover mainbttn btn-block">{% trans 'Izračunaj' %}</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="mt-3">
+                {% include '_message.html' %}
+            </div>
+
+            <div class="p-2 bg-white rounded" style="text-align: justify; margin-bottom: 10px; width:70%;">
+                <div class="text-center"><strong style="font-size:20px;">{% trans "Šturmova teorema" %}</strong></div>
+                <p>{% trans "Neka je" %} P(x) {% trans "polinom sa realnim koeficijentima koji razmatamo nad realnim segementom" %} [a, b], {% trans "pod pretpostavkom da na tom segmentu ima samo jednostruke nule." %}</p>
+                <p>{% trans "Formirajmo niz polinoma" %} P<sub>0</sub>, P<sub>1</sub>, . . . , P<sub>r</sub> {% trans "na sledeći način" %}:</p>
+                <ul>
+                    <li>(i) P<sub>0</sub>(x) = P(x)</li>
+                    <li>(ii) P<sub>1</sub>(x) = P′(x)</li>
+                    <li>(iii) P<sub>i+1</sub>(x) = −REM(P<sub>i</sub>(x), P<sub>i-1</sub>(x)) {% trans "redom za" %} i = 1, 2, . . . , r−1 i P<sub>r</sub>(x) = C – Const.</li>
+                </ul>
+                <p>{% trans "Neka je" %} ξ ∈ [a, b] {% trans "označimo" %} V (ξ) {% trans "broj promena znakova u nizu" %} P<sub>0</sub>(ξ), P<sub>1</sub>(ξ), ..., P<sub>r</sub>(ξ), {% trans "ignorišući eventualno javljanje korena polinoma u tom nizu." %}</p>
+                <p>{% trans "Tada razlika" %} <strong>N = V (a) − V (b)</strong> {% trans "određuje broj nula polinoma" %} P(x) {% trans "na segmentu" %} [a, b].</p>
+            </div>
+        </div>
+    </div>
+    {% include '_footer.html' %}
+</body>
+</html>
+
+<script src="{% static 'scripts.js' %}"></script>

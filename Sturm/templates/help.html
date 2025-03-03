@@ -1,0 +1,57 @@
+{% load static %}
+{% load i18n %}
+
+<html lang="en">
+<head>
+    {% include '_links.html' %}
+    <link href="{% static '_form.css' %}" rel="stylesheet">
+    <link href="{% static '_nav.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <title>{% trans "Pomoć" %}</title>
+</head>
+<body>
+    <div style="text-align: center; display: flex; justify-content: center; align-items: center;background-color: #FFAE09;" class="glowing-text">
+        <h1>{% trans "Pomoć" %}</h1>
+    </div>
+
+    {% include '_navbar.html' %}
+
+    <div class="main" style="width: 100%; min-height: 80vh;">
+        <div class="help" >
+            <div>
+                <div>
+                {% trans "Ukoliko želite da koristite neke specifične konstante ili operacije neophodno ih je napisati u sledećem obliku" %}:
+                </div>
+            </div>
+            <br>
+            <div style="display:flex; flex-direction: row; justify-content: space-around;">
+                <div >
+                <strong>{% trans "Aritmetičke operacije" %}</strong> <br> <br>
+                {% trans "Sabiranje" %}: + <br>
+                {% trans "Oduzimanje" %}: - <br>
+                {% trans "Množenje" %}: * <br>
+                {% trans "Deljenje" %}: / <br>
+                {% trans "Stepenovanje" %}: ** <br>
+                </div>
+                <div>
+                    <strong> {% trans "Konstante" %}</strong><br> <br>
+                    {% trans "Broj" %} π: pi  <br>
+                    {% trans "Broj" %} e: E  <br>
+                </div>
+            </div>
+
+            <br>
+            <div>
+                <h5><strong>{% trans "Primer unosa" %}</strong></h5>
+                (pi / 1260 - 1 / 420) * x ** 8 + (-pi ** 2 / 1680 + pi / 840) * x ** 7 + (-pi / 30 + 1 / 10) * x ** 6 + (-pi * pi / 60 + pi / 30) * x ** 5 + (2 * pi / 3 - 2) * x ** 4
+            </div>
+        </div>
+    </div>
+
+    {% include '_footer.html' %}
+
+</body>
+</html>
+
+<script src="{% static 'scripts.js' %}"></script>
+

@@ -1,0 +1,74 @@
+{% load i18n %}
+
+<style>
+    .burger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap; /* Omogućava prelamanje elemenata u novi red */
+    }
+
+    .nav-links a {
+        white-space: nowrap; /* Sprečava prelamanje reči u linkovima */
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .burger {
+            display: flex;
+        }
+
+        .navbar.active .nav-links {
+            display: flex;
+        }
+    }
+</style>
+
+<nav class="navbar">
+    <div class="burger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="nav-links">
+        <a href="{% url 'Index' %}">{% trans "Početna strana" %}</a>
+        <a href="{% url 'History' %}">{% trans "Istorija" %}</a>
+        <a href="{% url 'Quiz' %}">{% trans "Kviz" %}</a>
+        <a href="{% url 'Help' %}">{% trans "Pomoć" %}</a>
+        <a href="{% url 'Profile' %}">{% trans "Profil" %}</a>
+        <a href="{% url 'Contact' %}">{% trans "Kontakt" %}</a>
+        <a href="{% url 'Logout' %}">{% trans "Odjavi se" %}</a>
+        <div>
+            {% include '_languages.html' %}
+        </div>
+    </div>
+</nav>
+
+<script>
+    function toggleMenu() {
+        document.querySelector('.navbar').classList.toggle('active');
+    }
+</script>

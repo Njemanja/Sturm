@@ -1,0 +1,33 @@
+{% load static %}
+{% load i18n %}
+<head>
+    {% include '_links.html' %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '_nav.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static '_message.css' %}" rel="stylesheet">
+    <title>{% trans "Kontakt" %}</title>
+</head>
+<body>
+    <div style="text-align: center; display: flex; justify-content: center; align-items: center;background-color: #FFAE09;" class="glowing-text">
+        <h1>{% trans "Kontaktirajte nas" %}</h1>
+    </div>
+    {% include '_navbar.html' %}
+
+    <div class="main w-100 d-flex justify-content-center" style=" min-height: 80vh;">
+        <div class="col-sm-10 col-lg-8">
+            <form method="post" class="d-flex flex-column align-items-center">
+                {% csrf_token %}
+                <textarea id="message" name="message" class="form-control mb-4" cols="20" rows="10" placeholder="{% trans 'Poruka' %}"></textarea>
+                <button type="submit" class="btn btn-primary glow-on-hover mainbttn mb-4" value="profile">
+                    {% trans "Pošalji poruku" %}
+                </button>
+                {% include '_message.html' %}
+            </form>
+        </div>
+    </div>
+
+    {% include '_footer.html' %}
+</body>
+
+<script src="{% static 'scripts.js' %}"></script>

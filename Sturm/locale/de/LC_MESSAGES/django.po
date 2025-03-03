@@ -1,0 +1,715 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-16 19:32+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\Master\settings.py:114
+msgid "English"
+msgstr "Englisch"
+
+#: .\Master\settings.py:115
+msgid "Serbian"
+msgstr "serbisch"
+
+#: .\Master\settings.py:116
+msgid "Serbian (Cyrillic)"
+msgstr "Serbisch (kyrillisch)"
+
+#: .\Master\settings.py:117
+msgid "Spanish"
+msgstr "Spanisch"
+
+#: .\Master\settings.py:118
+msgid "Deutsch"
+msgstr "Deutsch"
+
+#: .\myadmin1\views.py:16
+msgid "ID korisnika nije u ispravnom obliku."
+msgstr "Die Benutzer -ID befindet sich nicht in der richtigen Form."
+
+#: .\myadmin1\views.py:20
+msgid "ID korisnika ne postoji."
+msgstr "Die Benutzer -ID existiert nicht."
+
+#: .\myadmin1\views.py:34
+msgid "Uspešno ste obrisali korisnika."
+msgstr "Sie haben den Benutzer erfolgreich gelöscht."
+
+#: .\myadmin1\views.py:40
+msgid "Broj novih pitanja nije u ispravnom obliku."
+msgstr "Die Anzahl der neuen Fragen ist nicht in der richtigen Form."
+
+#: .\myadmin1\views.py:105 .\polls\views.py:249
+msgid "Polinom je uvek"
+msgstr "Polynomie ist immer"
+
+#: .\myadmin1\views.py:105 .\polls\views.py:249
+msgid "pozitivan"
+msgstr "positiv"
+
+#: .\myadmin1\views.py:105 .\polls\views.py:249
+msgid "negativan"
+msgstr "Negativ"
+
+#: .\myadmin1\views.py:140 .\polls\views.py:284
+msgid ""
+"Broj nula je dobijen nanižom aproksimacijom koeficijenata, ukoliko se "
+"koristi navišna aproksimacija koeficijenata broj nula je"
+msgstr ""
+"Die Anzahl der Nullen wurde durch die Ascensionsnäherung der Koeffizienten "
+"erhalten, wenn die verwendete Annäherung der Koeffizientenzahl NILS ist"
+
+#: .\myadmin1\views.py:159
+msgid "Baza znanja dopunjena."
+msgstr "Wissensbasis ergänzt."
+
+#: .\myadmin1\views.py:165
+msgid "Tabela tačnih odgovora ažurirana."
+msgstr "Tabelle der richtigen Antworten aktualisiert."
+
+#: .\myadmin1\views.py:191
+msgid "Testiranje neuspešno."
+msgstr "Tests fehlgeschlagen."
+
+#: .\myadmin1\views.py:192
+msgid "Testiranje uspešno."
+msgstr "Erfolgreich testen."
+
+#: .\polls\views.py:76 .\polls\views.py:378
+msgid ""
+"Neka je ξ ∈ [a, b] označimo V (ξ) broj promena znakova u nizu P0(ξ), P1(ξ), "
+"..., Pr(ξ), ignorišući eventualno javljanje korena polinoma u tom nizu."
+msgstr ""
+"Sei ξ ξ ∈ [a, b] Anzahl der Änderungen in der Reihe P0 (ξ), p1 (ξ), ..., PR "
+"(ξ) und ignoriert die mögliche Reaktion von Wurzeln des Polynoms in dieser "
+"Zeile."
+
+#: .\polls\views.py:77 .\polls\views.py:382
+msgid ""
+"Tada razlika N = V (a) − V (b) određuje broj nula polinoma P(x) na segmentu "
+"[a, b]."
+msgstr ""
+"Dann bestimmt die Differenz n = v (a) - v (b) die Anzahl der Nullpolynom -P "
+"(x) im [a, b] Segment."
+
+#: .\polls\views.py:110
+msgid "Granica"
+msgstr "Grenze"
+
+#: .\polls\views.py:116
+msgid "nula polinoma"
+msgstr "Null Polynom"
+
+#: .\polls\views.py:120
+msgid "Grafik polinoma"
+msgstr "Polynomdiagramm"
+
+#: .\polls\views.py:147
+msgid "Unesite polinom."
+msgstr "Geben Sie Polynom ein."
+
+#: .\polls\views.py:149
+msgid "Unesite donju granicu."
+msgstr "Geben Sie die untere Grenze ein."
+
+#: .\polls\views.py:151
+msgid "Unesite gornju granicu."
+msgstr "Geben Sie die Obergrenze ein."
+
+#: .\polls\views.py:153
+msgid "Unesite broj decimala."
+msgstr "Geben Sie die Anzahl der Dezimalstellen ein."
+
+#: .\polls\views.py:160
+msgid "Donja, gornja granica i koficijent moraju biti brojevi."
+msgstr "Die untere, obere Grenze und die Mitarbeit müssen Zahlen sein."
+
+#: .\polls\views.py:162
+msgid "Donja granica mora biti strogo manja od gornje."
+msgstr "Die Untergrenze muss streng kleiner sein als das Obere."
+
+#: .\polls\views.py:164
+msgid "Broj decimala mora biti jednak ili veći od 0."
+msgstr "Die Anzahl der Dezimalstellen muss gleich oder mehr als 0 sein."
+
+#: .\polls\views.py:171 .\polls\views.py:173 .\polls\views.py:185
+msgid "Polinom nije ispravan."
+msgstr "Polynom ist nicht korrekt."
+
+#: .\polls\views.py:335
+msgid "Početni polinom P0(x):"
+msgstr "Polynom p0 (x) beginnen:"
+
+#: .\polls\views.py:339
+msgid "Prvi izvod početnog polinoma P0(x):"
+msgstr "Die erste Aussage des anfänglichen Polynoms P0 (x):"
+
+#: .\polls\views.py:343
+msgid "Najveći zajednički delilac polinoma P0(x) i P1(x):"
+msgstr "Die größte gemeinsame Aufteilung von Polynom p0 (x) und p1 (x):"
+
+#: .\polls\views.py:348
+msgid "Šturmov niz polinoma:"
+msgstr "Sturms Polynomserie:"
+
+#: .\polls\views.py:355
+msgid "Vrednost Šturmovog niza polinoma u tački:"
+msgstr "Der Wert von Sturges Serie von Polynom in Bezug auf Punkte:"
+
+#: .\polls\views.py:359
+msgid "Prva tačka: "
+msgstr "Erster Punkt:"
+
+#: .\polls\views.py:367
+msgid "Druga tačka: "
+msgstr "Ein weiterer Punkt:"
+
+#: .\polls\views.py:374
+msgid "Teorija"
+msgstr "Theorie"
+
+#: .\polls\views.py:390 .\templates\result.html:139
+msgid "Broj nula polinoma "
+msgstr "Nummer Null Polynome"
+
+#: .\polls\views.py:390
+msgid " na segmentu "
+msgstr "auf dem Segment"
+
+#: .\polls\views.py:390
+msgid " je "
+msgstr "Ist"
+
+#: .\polls\views.py:416
+msgid "Unesite poruku."
+msgstr "Geben Sie die Nachricht ein."
+
+#: .\polls\views.py:420
+#, python-brace-format
+msgid ""
+"Email: {email}\n"
+"{message}"
+msgstr ""
+"E -Mail: {E -Mail}\n"
+"{Nachricht}"
+
+#: .\polls\views.py:421 .\templates\_navbar.html:60 .\templates\help.html:10
+#: .\templates\help.html:14 .\templates\result.html:59
+msgid "Pomoć"
+msgstr "Helfen"
+
+#: .\polls\views.py:423
+msgid "Uspešno ste poslali poruku. Očekujte odgovor na email adresu."
+msgstr ""
+"Sie haben die Nachricht erfolgreich gesendet.Erwarten Sie eine Antwort auf "
+"die E -Mail -Adresse."
+
+#: .\templates\_languages.html:4
+msgid "Izaberite jezik"
+msgstr "Wählen Sie Ihre Sprache"
+
+#: .\templates\_languages.html:5
+msgid "Engleski jezik"
+msgstr "Englisch"
+
+#: .\templates\_languages.html:6
+msgid "Nemački jezik"
+msgstr "Deutsch"
+
+#: .\templates\_languages.html:7
+msgid "Srpski jezik (ćirilica)"
+msgstr "Serbische Sprache (kyrillisch)"
+
+#: .\templates\_languages.html:8
+msgid "Srpski jezik (latinica)"
+msgstr "Serbische Sprache (lateinisch)"
+
+#: .\templates\_navbar.html:57 .\templates\result.html:56
+msgid "Početna strana"
+msgstr "Startseite"
+
+#: .\templates\_navbar.html:58 .\templates\history.html:23
+#: .\templates\history.html:27 .\templates\result.html:57
+msgid "Istorija"
+msgstr "Geschichte"
+
+#: .\templates\_navbar.html:59 .\templates\quiz.html:10
+#: .\templates\quiz.html:29 .\templates\result.html:58
+msgid "Kviz"
+msgstr "Quiz"
+
+#: .\templates\_navbar.html:61 .\templates\profile.html:13
+#: .\templates\profile.html:18 .\templates\result.html:60
+msgid "Profil"
+msgstr "Profil"
+
+#: .\templates\_navbar.html:62 .\templates\contact.html:9
+#: .\templates\result.html:61
+msgid "Kontakt"
+msgstr "Kontakt"
+
+#: .\templates\_navbar.html:63 .\templates\result.html:62
+msgid "Odjavi se"
+msgstr "Melden Sie sich aus"
+
+#: .\templates\admin.html:11 .\templates\admin.html:15
+msgid "Admin"
+msgstr "Administrator"
+
+#: .\templates\admin.html:23
+msgid "ID korisnika"
+msgstr "Benutzer-ID"
+
+#: .\templates\admin.html:25
+msgid "Obriši korisnika"
+msgstr "Benutzer löschen"
+
+#: .\templates\admin.html:30
+msgid "Broj pitanja"
+msgstr "Anzahl der Fragen"
+
+#: .\templates\admin.html:32
+msgid "Generiši bazu pitanja"
+msgstr "Generieren Sie die Datenbank mit Fragen"
+
+#: .\templates\admin.html:36
+msgid "Resetuj odgovore"
+msgstr "Setzen Sie die Antworten zurück"
+
+#: .\templates\admin.html:39
+msgid "Testiraj"
+msgstr "Prüfen"
+
+#: .\templates\admin.html:48 .\templates\login.html:23
+#: .\templates\profile.html:30 .\templates\quiz.html:71
+#: .\templates\register.html:25
+msgid "Korisničko ime"
+msgstr "Benutzername"
+
+#: .\templates\contact.html:13
+msgid "Kontaktirajte nas"
+msgstr "Kontaktieren Sie uns"
+
+#: .\templates\contact.html:21
+msgid "Poruka"
+msgstr "Nachricht"
+
+#: .\templates\contact.html:23
+msgid "Pošalji poruku"
+msgstr "Senden Sie eine Nachricht"
+
+#: .\templates\forgotPassword.html:12 .\templates\newPassword.html:12
+#: .\user\views.py:129
+msgid "Promena lozinke"
+msgstr "Ändern des Passworts"
+
+#: .\templates\forgotPassword.html:17
+msgid "Unesite email"
+msgstr "Geben Sie eine E -Mail ein"
+
+#: .\templates\forgotPassword.html:22 .\templates\profile.html:42
+#: .\templates\register.html:37
+msgid "Email"
+msgstr "E-Mail"
+
+#: .\templates\forgotPassword.html:28 .\templates\newPassword.html:31
+msgid "Potvrdi"
+msgstr "Bestätigen"
+
+#: .\templates\help.html:23
+msgid ""
+"Ukoliko želite da koristite neke specifične konstante ili operacije "
+"neophodno ih je napisati u sledećem obliku"
+msgstr ""
+"Wenn Sie bestimmte Konstanten oder Operationen verwenden möchten, müssen Sie"
+" sie in der folgenden Form schreiben"
+
+#: .\templates\help.html:29
+msgid "Aritmetičke operacije"
+msgstr "Arithmetische Operationen"
+
+#: .\templates\help.html:30
+msgid "Sabiranje"
+msgstr "Sammlung"
+
+#: .\templates\help.html:31
+msgid "Oduzimanje"
+msgstr "Subtraktion"
+
+#: .\templates\help.html:32
+msgid "Množenje"
+msgstr "Multiplikation"
+
+#: .\templates\help.html:33
+msgid "Deljenje"
+msgstr "Division"
+
+#: .\templates\help.html:34
+msgid "Stepenovanje"
+msgstr "Abschluss"
+
+#: .\templates\help.html:37
+msgid "Konstante"
+msgstr "Konstanten"
+
+#: .\templates\help.html:38 .\templates\help.html:39
+msgid "Broj"
+msgstr "Nummer"
+
+#: .\templates\help.html:45
+msgid "Primer unosa"
+msgstr "Eingabebeispiel"
+
+#: .\templates\history.html:49
+msgid "Broj nula"
+msgstr "Nummer Null"
+
+#: .\templates\history.html:50 .\templates\index.html:84
+#: .\templates\quiz.html:45
+msgid "na segmentu"
+msgstr "auf dem Segment"
+
+#: .\templates\index.html:12
+msgid "Kalkulator"
+msgstr "Kalkulator"
+
+#: .\templates\index.html:16
+msgid "Kalkulator nula polinoma pomoću Šturmove teoreme"
+msgstr "Null -Polynomrechner unter Verwendung des Sturma -Theorems"
+
+#: .\templates\index.html:23
+msgid "Polinom"
+msgstr "Polynom"
+
+#: .\templates\index.html:56
+msgid "Donja granica"
+msgstr "Untergrenze"
+
+#: .\templates\index.html:59
+msgid "Gornja granica"
+msgstr "Obere Grenze"
+
+#: .\templates\index.html:62
+msgid "Broj decimala"
+msgstr "Anzahl der Dezimalstellen"
+
+#: .\templates\index.html:65
+msgid "Izračunaj"
+msgstr "Berechnen"
+
+#: .\templates\index.html:75
+msgid "Šturmova teorema"
+msgstr "Sturge Theorem"
+
+#: .\templates\index.html:76 .\templates\index.html:83
+msgid "Neka je"
+msgstr "Möge es sein"
+
+#: .\templates\index.html:76
+msgid ""
+"polinom sa realnim koeficijentima koji razmatamo nad realnim segementom"
+msgstr ""
+"Polynom mit realistischen Koeffizienten, die wir über die echte Segement "
+"verderben"
+
+#: .\templates\index.html:76
+msgid "pod pretpostavkom da na tom segmentu ima samo jednostruke nule."
+msgstr "Angenommen, nur einzelne Nullen haben in diesem Segment."
+
+#: .\templates\index.html:77
+msgid "Formirajmo niz polinoma"
+msgstr "Lassen Sie uns eine Reihe von Polynomen bilden"
+
+#: .\templates\index.html:77
+msgid "na sledeći način"
+msgstr "wie folgt"
+
+#: .\templates\index.html:81
+msgid "redom za"
+msgstr "Um zu"
+
+#: .\templates\index.html:83
+msgid "označimo"
+msgstr "MARK"
+
+#: .\templates\index.html:83
+msgid "broj promena znakova u nizu"
+msgstr "Anzahl der Zeichenänderungen in einer Zeile"
+
+#: .\templates\index.html:83
+msgid "ignorišući eventualno javljanje korena polinoma u tom nizu."
+msgstr ""
+"Ignorieren Sie die möglicherweise meldenden Wurzeln von Polynom in dieser "
+"Reihenfolge."
+
+#: .\templates\index.html:84
+msgid "Tada razlika"
+msgstr "Dann der Unterschied"
+
+#: .\templates\index.html:84
+msgid "određuje broj nula polinoma"
+msgstr "Gibt die Anzahl der Nullpolynomien an"
+
+#: .\templates\login.html:11
+msgid "Prijava"
+msgstr "Anmeldung"
+
+#: .\templates\login.html:18
+msgid "Prijavljivanje"
+msgstr "Login"
+
+#: .\templates\login.html:27 .\templates\newPassword.html:22
+#: .\templates\profile.html:48 .\templates\register.html:41
+msgid "Lozinka"
+msgstr "Passwort"
+
+#: .\templates\login.html:36
+msgid "Nemate nalog"
+msgstr "Sie haben kein Konto"
+
+#: .\templates\login.html:36
+msgid "Registrujte se"
+msgstr "Registrieren"
+
+#: .\templates\login.html:36 .\templates\register.html:64
+msgid "ovde"
+msgstr "Hier"
+
+#: .\templates\login.html:39
+msgid "Zaboravili ste lozinku?"
+msgstr "Ihr Passwort vergessen?"
+
+#: .\templates\login.html:46
+msgid "Prijavi se"
+msgstr "anmelden"
+
+#: .\templates\newPassword.html:17
+msgid "Unesite novu lozinku"
+msgstr "Geben Sie ein neues Passwort ein"
+
+#: .\templates\newPassword.html:25 .\templates\profile.html:52
+#: .\templates\register.html:45
+msgid "Ponovite lozinku"
+msgstr "Wiederholen Sie das Passwort"
+
+#: .\templates\profile.html:34 .\templates\register.html:29
+msgid "Ime"
+msgstr "Name"
+
+#: .\templates\profile.html:38 .\templates\register.html:33
+msgid "Prezime"
+msgstr "Nachname"
+
+#: .\templates\profile.html:47
+msgid "Nova lozinka"
+msgstr "Neues Passwort"
+
+#: .\templates\profile.html:56
+msgid "Uredi profil"
+msgstr "Profil bearbeiten"
+
+#: .\templates\quiz.html:36
+msgid "Uradili ste dnevni izazov, dođite sutra."
+msgstr "Du hast eine lebendige Herausforderung gemacht, komm morgen."
+
+#: .\templates\quiz.html:39
+msgid "Izračunaj broj nula polinoma"
+msgstr "Berechnen Sie Null Polynomzahl"
+
+#: .\templates\quiz.html:62
+msgid "Trenutni rezultat"
+msgstr "Aktuelle Punktzahl"
+
+#: .\templates\quiz.html:72
+msgid "Poeni"
+msgstr "Punkte"
+
+#: .\templates\quiz.html:87
+msgid "Prikaži tabelu"
+msgstr "Tabelle anzeigen"
+
+#: .\templates\quiz.html:88
+msgid "Sakrij tabelu"
+msgstr "Verstecke die Tabelle"
+
+#: .\templates\quiz.html:89
+msgid "Prikaži više"
+msgstr "Zeigen Sie mehr"
+
+#: .\templates\register.html:14 .\templates\register.html:20
+msgid "Registracija"
+msgstr "Anmeldung"
+
+#: .\templates\register.html:50
+msgid "Student"
+msgstr "Student"
+
+#: .\templates\register.html:51
+msgid "Zaposleni"
+msgstr "Mitarbeiter"
+
+#: .\templates\register.html:56
+msgid "Ustanova"
+msgstr "Institution"
+
+#: .\templates\register.html:60
+msgid "Razlog registracije"
+msgstr "Grund für die Registrierung"
+
+#: .\templates\register.html:64
+msgid "Imate nalog?"
+msgstr "Sie haben ein Konto?"
+
+#: .\templates\register.html:64
+msgid "Prijavite se"
+msgstr "Melden Sie sich an"
+
+#: .\templates\register.html:71
+msgid "Registruj se"
+msgstr "Registrieren"
+
+#: .\templates\result.html:5 .\templates\result.html:52
+msgid "Rezultat"
+msgstr "Ergebnis"
+
+#: .\templates\result.html:69
+msgid "Početni polinom P0(x)"
+msgstr "Anfängliches Polynom p0 (x)"
+
+#: .\templates\result.html:79
+msgid "Prvi izvod početnog polinoma P0(x)"
+msgstr "Die erste Ausführung des anfänglichen Polynoms P0 (x)"
+
+#: .\templates\result.html:89
+msgid "Najveći zajednički delilac polinoma P0(x) i P1(x)"
+msgstr "Die größte gemeinsame Aufteilung von Polynom p0 (x) und p1 (x)"
+
+#: .\templates\result.html:99
+msgid "Šturmov niz polinoma"
+msgstr "Sturms Reihe von Polynomen"
+
+#: .\templates\result.html:109 .\templates\result.html:119
+#: .\templates\result.html:129
+msgid "Vrednost Šturmovog niza polinoma u tački "
+msgstr "Der Wert von Sturgees von Polynom bei Punkt"
+
+#: .\templates\result.html:143
+msgid "na segmentu "
+msgstr "auf dem Segment"
+
+#: .\templates\result.html:147
+msgid "je"
+msgstr "Ist"
+
+#: .\templates\result.html:169
+msgid "Naredni korak"
+msgstr "Nächster Schritt"
+
+#: .\templates\result.html:171
+msgid "Preuzmi PDF"
+msgstr "PDF herunterladen"
+
+#: .\user\views.py:29 .\user\views.py:77 .\user\views.py:191
+msgid "Unesite korisničko ime."
+msgstr "Geben Sie den Benutzernamen ein."
+
+#: .\user\views.py:31 .\user\views.py:193
+msgid "Unesite ime."
+msgstr "Geben Sie einen Namen ein."
+
+#: .\user\views.py:33 .\user\views.py:195
+msgid "Unesite prezime."
+msgstr "Geben Sie den Nachnamen ein."
+
+#: .\user\views.py:35 .\user\views.py:79 .\user\views.py:156
+msgid "Unesite lozinku."
+msgstr "Geben Sie Ihr Passwort ein."
+
+#: .\user\views.py:37 .\user\views.py:158 .\user\views.py:229
+msgid "Unesite lozinku i u drugo polje."
+msgstr "Geben Sie das Passwort und in ein anderes Feld ein."
+
+#: .\user\views.py:39 .\user\views.py:101 .\user\views.py:197
+msgid "Unesite email."
+msgstr "Geben Sie eine E -Mail ein."
+
+#: .\user\views.py:41 .\user\views.py:160 .\user\views.py:231
+msgid ""
+"Lozinka mora imati minimalno 6 karaktera, barem jednu cifru i barem jedan "
+"specijalni znak."
+msgstr ""
+"Das Passwort muss mindestens 6 Zeichen, mindestens eine Ziffer und "
+"mindestens einen speziellen Charakter haben."
+
+#: .\user\views.py:43 .\user\views.py:162 .\user\views.py:233
+msgid "Unete lozinke nisu iste."
+msgstr "Die eingegebenen Passwörter sind nicht gleich."
+
+#: .\user\views.py:45 .\user\views.py:199
+msgid ""
+"Korisničko ime mora imati između 6 i 25 karaktera  i može sadržati samo "
+"slova i cifre."
+msgstr ""
+"Der Benutzername muss zwischen 6 und 25 Zeichen haben und kann nur "
+"Buchstaben und Ziffern enthalten."
+
+#: .\user\views.py:47
+msgid "Korisničko ime već postoji."
+msgstr "Der Benutzername existiert bereits."
+
+#: .\user\views.py:49
+msgid "Email već postoji."
+msgstr "E -Mail existiert bereits."
+
+#: .\user\views.py:51
+msgid "Email nije ispravan."
+msgstr "E -Mail ist nicht korrekt."
+
+#: .\user\views.py:75
+msgid "Unesite korisničko ime i lozinku."
+msgstr "Geben Sie den Benutzernamen und das Passwort ein."
+
+#: .\user\views.py:88
+msgid "Korisničko ime ili lozinka nisu ispravni."
+msgstr "Benutzername oder Passwort sind nicht korrekt."
+
+#: .\user\views.py:108
+msgid "Korisnik sa datom email adresom ne postoji."
+msgstr "Der Benutzer mit einer bestimmten E -Mail -Adresse gibt es nicht."
+
+#: .\user\views.py:130
+#, python-brace-format
+msgid "Kliknite na sledeći link da promenite lozinku: {reset_link}"
+msgstr ""
+"Klicken Sie auf den folgenden Link, um Ihr Passwort zu ändern: {reset_link}"
+
+#: .\user\views.py:132
+msgid "Uspešno ste poslali zahtev za promenu lozinke."
+msgstr "Sie haben erfolgreich eine Passwortänderungsanforderung gesendet."
+
+#: .\user\views.py:208
+msgid "Korisnik sa datim korisničkim imenom postoji."
+msgstr "Der Benutzer mit dem gegebenen Benutzernamen existiert."
+
+#: .\user\views.py:217
+msgid "Korisnik sa datim emailom već postoji."
+msgstr "Der Begünstigte mit der angegebenen E -Mail existiert bereits."
+
+#: .\user\views.py:247
+msgid "Uspešno ste promenili podatke."
+msgstr "Sie haben die Daten erfolgreich geändert."

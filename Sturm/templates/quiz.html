@@ -1,0 +1,249 @@
+{% load static %}
+{% load i18n %}
+
+<head>
+    {% include '_links.html' %}
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '_nav.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>{% trans "Kviz" %}</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js", "noUndefined.js"]
+        }
+      });
+    </script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</head>
+<body>
+    <div style="text-align: center; display: flex; justify-content: center; align-items: center; background-color: #FFAE09;" class="glowing-text">
+        <h1>{% trans "Kviz" %}</h1>
+    </div>
+
+    {% include '_navbar.html' %}
+
+    <div class="main" style="min-height: 80vh; width:100%;">
+        {% if myScore.index == 10 %}
+            <h2 style="text-align: center;">{% trans "Uradili ste dnevni izazov, dođite sutra." %}</h2>
+        {% else %}
+        <div>
+            <h2>{% trans "Izračunaj broj nula polinoma" %}</h2>
+            <h2 style="text-align: center;">
+                {% autoescape off %}
+                    ${{ poly|safe }}$
+                {% endautoescape %}
+            </h2>
+            <h2 style="text-align: center;">{% trans "na segmentu" %} &nbsp;[{{lower}};{{upper}}].</h2>
+
+            <form method="POST" action="{% url 'Quiz' %}">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{ id }}">
+                <input type="hidden" name="correct_answer" value="{{ correct_answer }}">
+
+                <div>
+                    {% for answer in answers %}
+                        <button type="submit" name="selected_answer" value="{{ answer.value }}" data-correct="{{ answer.correct }}" class="glow-on-hover mainbttn mr-3" onclick="handleAnswerClick(this)">
+                            {{ answer.value }}
+                        </button>
+                    {% endfor %}
+                </div>
+            </form>
+        </div>
+        <div class="waviy" style="font-weight: bolder; margin-top: 30px;">
+           <span style="--i:1">{% trans "Trenutni rezultat" %}</span> <br>
+           <span id="score" style="--i:2">{{ myScore.points }}</span>
+        </div>
+        {% endif %}
+
+            <div class="table-container">
+                <table style="width: 50%; border-collapse: collapse; background-color: white; display: none;" id="scoreTable">
+                    <thead>
+                        <tr>
+                            <th class="tbl" style="border: 2px solid black; padding: 8px; text-align: center; font-size: 20px; width: 25%;">{% trans "Korisničko ime" %}</th>
+                            <th class="tbl" style="border: 2px solid black; padding: 8px; text-align: center; font-size: 20px; width: 25%;">{% trans "Poeni" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in ranking %}
+                            <tr class="score-row {% if item.rank == 1 %}gold{% elif item.rank == 2 %}silver{% elif item.rank == 3 %}bronze{% endif %}" style="display: none;">
+                                <td class="tbl" style="border: 2px solid black; text-align: center; font-size: 25px; width: 25%;">{{ item.username }}</td>
+                                <td class="tbl" style="border: 2px solid black; padding: 8px; font-size: 20px; text-align: center; width: 25%;"><b>{{ item.points }}</b></td>
+                            </tr>
+                        {% endfor %}
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button id="showTableBtn" class="glow-on-hover mainbttn" style="margin-top: 10px; padding: 10px; font-size: 16px; color: #373737;" onclick="toggleTableVisibility()">{% trans "Prikaži tabelu" %}</button>
+            <button id="hideTableBtn" class="glow-on-hover mainbttn" style="margin-top: 10px; padding: 10px; font-size: 16px; color: #373737; display: none;" onclick="toggleTableVisibility()">{% trans "Sakrij tabelu" %}</button>
+            <button id="showMoreBtn" class="glow-on-hover mainbttn" style="margin-bottom: 10px; margin-top: 10px; padding: 10px; font-size: 16px; color: #373737; display: none;" onclick="showMoreRows()">{% trans "Prikaži više" %}</button>
+    </div>
+
+    {% include '_footer.html' %}
+</body>
+
+<style>
+.MathJax {
+  max-width: 100%;
+  font-size: 6vw;
+}
+.waviy {
+  position: relative;
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  animation: flip 2s infinite;
+  animation-delay: calc(.2s * var(--i))
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg)
+  }
+}
+    @keyframes glowGold {
+        0% { box-shadow: 0 0 20px #FFD700; }
+        50% { box-shadow: 0 0 20px #FFEC8B; }
+        100% { box-shadow: 0 0 20px #FFD700; }
+    }
+
+    @keyframes glowSilver {
+        0% { box-shadow: 0 0 20px #C0C0C0; }
+        50% { box-shadow: 0 0 20px #D3D3D3; }
+        100% { box-shadow: 0 0 20px #C0C0C0; }
+    }
+
+    @keyframes glowBronze {
+        0% { box-shadow: 0 0 20px #CD7F32; }
+        50% { box-shadow: 0 0 20px #D2B48C; }
+        100% { box-shadow: 0 0 20px #CD7F32; }
+    }
+
+    .gold { background-color: #FFD700; animation: glowGold 2s infinite; }
+    .silver { background-color: #C0C0C0; animation: glowSilver 2s infinite; }
+    .bronze { background-color: #CD7F32; animation: glowBronze 2s infinite; }
+
+    #showTableBtn {
+        background-color: #FFAE09;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    #showMoreBtn {
+    background-color: #FFAE09;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#showMoreBtn:hover {
+    background-color: #FF9509;
+}
+
+    #showTableBtn:hover {
+        background-color: #FF9509;
+    }
+
+.table-container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+#scoreTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 20px;
+}
+
+#showTableBtn,
+#hideTableBtn,
+#showMoreBtn {
+    background-color: #FFAE09;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+</style>
+<script>
+let currentVisibleRows = 5;
+function showMoreRows() {
+    const rows = document.querySelectorAll('.score-row');
+    const totalRows = rows.length;
+    for (let i = currentVisibleRows; i < currentVisibleRows + 5 && i < totalRows; i++) {
+        rows[i].style.display = '';
+    }
+    currentVisibleRows += 5;
+    if (currentVisibleRows >= totalRows) {
+        document.getElementById('showMoreBtn').style.display = 'none';
+    }
+}
+function toggleTableVisibility() {
+    const table = document.getElementById('scoreTable');
+    const rows = document.querySelectorAll('.score-row');
+    const showTableBtn = document.getElementById('showTableBtn');
+    const hideTableBtn = document.getElementById('hideTableBtn');
+    const showMoreBtn = document.getElementById('showMoreBtn');
+
+    if (table.style.display === 'none') {
+        table.style.display = '';
+        showTableBtn.style.display = 'none';
+        hideTableBtn.style.display = '';
+
+        rows.forEach((row, index) => {
+            if (index < 5) {
+                row.style.display = '';
+            }
+        });
+        if (rows.length > 5) {
+            showMoreBtn.style.display = '';
+        }
+    } else {
+        table.style.display = 'none';
+        showTableBtn.style.display = '';
+        hideTableBtn.style.display = 'none';
+        showMoreBtn.style.display = 'none';
+    }
+}
+
+function handleAnswerClick(button) {
+        const isCorrect = button.dataset.correct === 'True';
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        scoreDisplay.style.color = 'white';
+        if (isCorrect) {
+            scoreDisplay.style.backgroundColor = 'green';
+        } else {
+            scoreDisplay.style.backgroundColor = 'red';
+        }
+
+        // Vraćanje boje na belu nakon 1 sekunde
+        setTimeout(() => {
+            scoreDisplay.style.backgroundColor = 'white';
+            scoreDisplay.style.color = 'black';
+
+        }, 5000);
+    }
+</script>
+<script src="{% static 'scripts.js' %}"></script>
+

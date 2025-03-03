@@ -1,0 +1,5 @@
+Polynomial: 3*x**3 - 3*x**2 - 9*x - 14
+Segment: [-67, 97] 
+Expected: 1
+Got: 0
+

@@ -1,0 +1,92 @@
+{% load static %}
+{% load i18n %}
+
+<head>
+    {% include '_links.html' %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '_nav.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js", "noUndefined.js"]
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <title>{% trans "Istorija" %}</title>
+</head>
+<body>
+    <div style="text-align: center; display: flex; justify-content: center; align-items: center;background-color: #FFAE09;" class="glowing-text">
+        <h1>{% trans "Istorija" %}</h1>
+    </div>
+    {% include '_navbar.html' %}
+    <div class="mainHisotry">
+        <div style="width: 100%; background-color: none; border-radius: 8px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tbody>
+                    {% for history in histories %}
+                        <tr>
+                            <td colspan="3" style="border: 2px solid white; padding: 10px; border-radius: 8px;">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td class="tbl" style="border-bottom: 2px solid black; text-align: center; font-size: 20px; word-wrap: break-word; overflow-wrap: break-word;">
+                                            <b>
+                                                {% autoescape off %}
+                                                    {{ history.P0|safe }}
+                                                {% endautoescape %}
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tbl" style="word-break: break-word; border-bottom: 2px solid black; text-align: center; font-size: 2vw;">
+                                           {% trans "Broj nula" %} - <b>{{ history.numOfZeros }}</b>,
+                                           {% trans "na segmentu" %}
+                                           <b>[{{history.lower}};{{ history.upper}}]</b>.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center; padding-top: 10px;">
+                                            <div style="display: flex; justify-content: space-around;">
+                                                <a href="{% url 'HistoryID' history.id %}" class="glow-on-hover mainbttn">PDF</a>
+                                                <i class="fa-solid fa-calculator mainbttn" onclick="sendHistory({{ history.id }})"></i>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+<!--    {% include '_footer.html' %}-->
+</body>
+<style>
+.tbl{
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+table{
+  table-layout:fixed;
+}
+
+.MathJax {
+  max-width: 100%;
+  font-size: 6vw;
+}
+</style>
+<script src="{% static 'scripts.js' %}"></script>
+<script>
+   function sendHistory(id) {
+        window.location.href = "{% url 'Index' id=0 %}".replace("0", id);
+   }
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+
+<html lang="en">
+<head>
+    {% include '_links.html' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static '_nav.css' %}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'register.css' %}" rel="stylesheet">
+    <link href="{% static '_message.css' %}" rel="stylesheet">
+
+    <title>{% trans "Registracija" %}</title>
+</head>
+<body>
+    {% include '_languages.html' %}
+   <div class="col-sm-10 col-lg-6" style="padding: 10px;">
+       <div class="container">
+        <h2 style="color: #373737">{% trans "Registracija" %}</h2>
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <input type="text" id="username" name="username" value="{{ request.POST.username }}" placeholder="{% trans 'Korisničko ime' %}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="name" name="name" value="{{ request.POST.name }}" placeholder="{% trans 'Ime' %}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="surname" name="surname" value="{{ request.POST.surname }}" placeholder="{% trans 'Prezime' %}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="email" name="email" value="{{ request.POST.email }}" placeholder="{% trans 'Email' %}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="{% trans 'Lozinka' %}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password1" name="password1" placeholder="{% trans 'Ponovite lozinku' %}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <select id="status" name="status" class="form-control" style="width: 100%;">
+                    <option value="STUDENT" {% if request.POST.status == "STUDENT" %}selected{% endif %}>{% trans "Student" %}</option>
+                    <option value="EMPLOYED" {% if request.POST.status == "EMPLOYED" %}selected{% endif %}>{% trans "Zaposleni" %}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="institution" name="institution" value="{{ request.POST.institution }}" placeholder="{% trans 'Ustanova' %}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <textarea id="reason" name="reason" placeholder="{% trans 'Razlog registracije' %}" class="form-control">{{ request.POST.reason }}</textarea>
+            </div>
+
+            <div class="form-group" style="color: #373737;">
+                <b><p>{% trans "Imate nalog?" %}  {% trans "Prijavite se" %} <a href="{% url 'Login' %}">{% trans "ovde" %}</a>.</p></b>
+            </div>
+
+            {% include '_message.html' %}
+
+
+           <div style="width: 100%; text-align: center;">
+                <button type="submit" class="glow-on-hover mainbttn" style="margin-left: 20px;margin-top:20px;">{% trans "Registruj se" %}</button>
+            </div>
+        </form>
+    </div>
+
+   </div>
+</body>
+</html>
+<script src="{% static 'scripts.js' %}"></script>

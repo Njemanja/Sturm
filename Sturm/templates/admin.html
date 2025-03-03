@@ -1,0 +1,70 @@
+{% load static %}
+{% load i18n %}
+
+<head>
+    {% include '_links.html' %}
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static '_nav.css' %}" rel="stylesheet">
+    <link href="{% static '_message.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>{% trans "Admin" %}</title>
+</head>
+<body>
+    <div style="text-align: center; display: flex; justify-content: center; align-items: center; background-color: #FFAE09;" class="glowing-text">
+        <h1>{% trans "Admin" %}</h1>
+    </div>
+    {% include '_navbar.html' %}
+
+    <div class="main" style="width:100%;">
+        <form method="post" style="padding: 50px; border-radius: 5px; width: 50%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            {% csrf_token %}
+            <div style="display: flex; flex-direction: row; padding: 10px;">
+                <input id="user" name="user" placeholder="{% trans 'ID korisnika' %}">
+                <div style="text-align: center;">
+                    <button type="submit" class="glow-on-hover mainbttn" style="margin: 10px;" name="delete_user">{% trans "Obriši korisnika" %}</button>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: row; margin: 15px;">
+                <input id="number" name="number" placeholder="{% trans 'Broj pitanja' %}">
+                <div style="text-align: center;">
+                    <button type="submit" class="glow-on-hover mainbttn" style="margin: 10px;" name="generate_questions">{% trans "Generiši bazu pitanja" %}</button>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button type="submit" class="glow-on-hover mainbttn" style="margin: 10px;" name="reset">{% trans "Resetuj odgovore" %}</button>
+            </div>
+            <div style="text-align: center;">
+                <button type="submit" class="glow-on-hover mainbttn" style="margin: 10px;" name="test">{% trans "Testiraj" %}</button>
+            </div>
+            {% include '_message.html' %}
+        </form>
+
+        <table style="width: 50%; background-color: white; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th class="tbl" style="border: 2px solid black; padding: 8px; text-align: center; font-size: 20px;">ID</th>
+                    <th class="tbl" style="border: 2px solid black; padding: 8px; text-align: center; font-size: 20px;">{% trans "Korisničko ime" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td class="tbl" style="border: 2px solid black; text-align: center; font-size: 25px; width:55%;">
+                        <b>{{ user.id }}</b>
+                    </td>
+                    <td class="tbl" style="border: 2px solid black; text-align: center; font-size: 25px; width:55%;">
+                        <b>{{ user.username }}</b>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% include '_footer.html' %}
+</body>
+</html>
+
+<script src="{% static 'scripts.js' %}"></script>
